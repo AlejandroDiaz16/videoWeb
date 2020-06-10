@@ -1,0 +1,264 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?ockivf');
+  src:  url('fonts/icomoon.eot?ockivf#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?ockivf') format('truetype'),
+    url('fonts/icomoon.woff?ockivf') format('woff'),
+    url('fonts/icomoon.svg?ockivf#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-profile-menu:before {
+  content: "\e900";
+}
+.icon-profile-menu {
+	cursor: pointer;
+}
+.icon-general-menu:before {
+  content: "\e901";
+}
+.icon-favorites:before {
+  content: "\e902";
+}
+.icon-trending:before {
+  content: "\e903";
+}
+.icon-home:before {
+  content: "\e904";
+}
+
+/*iconos*/
+body {
+	font-family: Arial;
+	margin: 0;
+	color: white;
+	background: #1b2726;
+}
+
+.container {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns:70px minmax(auto,1024px);
+	grid-template-rows: 70px 1fr 90px 25px;
+	height: 100vh;
+	grid-template-areas: "badge search profile"
+						 "left contenido contenido"
+						 "options contenido contenido"
+						 "footer footer footer" 
+}
+
+/*header*/
+.header {
+	
+}
+.badge {
+	grid-area: badge;
+	
+	/*background: rgba(0,10,10,.5);*/
+}
+.searchContainer {
+	text-align: center;
+}
+.search {
+	grid-area: search;
+	border-radius: 8px;
+	max-width: 600px;
+	width: 80%;
+	text-align: center;
+	min-height: 20px;
+	
+	/*background: rgba(0,10,20,.5);*/
+}
+.profile {
+	
+	grid-area: profile;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+ .badge img {
+	max-width: 40px;
+}
+.profile-img {
+	width: 30px;
+	height: 30px;
+	margin: 0 10px 0 5px;
+	border-radius: 15px;
+}
+.profile-img img {
+	max-width: 100%;
+}
+
+
+/*segunda fila*/
+.menu {
+	display: grid;
+	height: 100%;
+	grid-template-rows: repeat(3,1fr);
+	
+	grid-area: left;
+	text-align: center;
+}
+.icono {
+	font-size: 2em;
+	cursor: pointer;
+}
+.iconoContainer {
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+.options {
+	grid-area: options;
+	display: grid;
+	text-align: center;
+	
+	grid-template-rows: 1fr;
+}
+
+/*seccion principal movies*/
+.movies-list {
+	
+	grid-area: contenido;
+	overflow: auto;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows:20px 1fr 20px 1fr 20px 1fr;
+	height: 100%; 
+	justify-content: center;
+	grid-template-areas: "title1"
+						 "newMovies"
+						 "title2"
+						 "trendingMovies"
+						 "title3"
+						 "actionMovies";
+	grid-gap: 20px;
+	width: auto;
+	padding: 0 5px;
+	overflow: auto;
+}
+
+.newMovies {
+	grid-area: newMovies;
+	/*border:1px solid purple;*/
+	display: grid;
+	grid-gap: 10px;
+	padding: 5px 10px;
+	background: #1b2327;
+	grid-template-rows: minmax(100px,200px);
+	grid-template-columns: repeat(4,minmax(140px,300px));
+}
+.trendingMovies {
+	grid-area: trendingMovies;
+	/*border:1px solid purple;*/
+	display: grid;
+	grid-gap: 10px;
+	padding: 5px 10px;
+	background: #1b2327;
+	grid-template-rows: minmax(100px,200px);
+	grid-template-columns: repeat(4,minmax(140px,300px));
+}
+.actionMovies {
+	grid-area: actionMovies;
+	/*border:1px solid purple;*/
+	display: grid;
+	grid-gap: 10px;
+	padding: 5px 10px;
+	background: #1b2327;
+	grid-template-rows: minmax(100px,200px);
+	grid-template-columns: repeat(4,minmax(140px,300px));
+}
+.movie {
+	cursor: pointer;
+	display: block;
+	position: relative;
+}
+.movie-img {
+	margin: 0;
+}
+.movie-img img {
+	width:100%;
+	height: -webkit-fill-available;
+	object-fit: cover;
+	vertical-align: top;
+}
+.movie-info {
+	height: 60%;
+	font-size: .8em;
+	background: rgba(0,0,0,.6);
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	text-align: center;
+}
+.movie:hover .movie-info {
+	display: inline-block;
+}
+
+/*footer*/
+footer {
+	
+	grid-area: footer
+}
+.footerContainer {
+	display: flex;
+	justify-content: space-between;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+@media(max-width: 767px){
+	.movie-info {
+		height: 100%;
+		top:0;
+		font-size: .8em;
+	}
+	.container {
+		grid-template-columns:70px minmax(auto,1024px);
+		grid-template-rows: 70px 50px 1fr 90px 25px;
+		grid-template-areas: "badge search profile"
+						 "left left options"
+						 "contenido contenido contenido"
+						 "contenido contenido contenido"
+						 "footer footer footer" 
+	}
+	.movies-list {
+		margin-top: 15px;
+	}
+	.menu {
+		display: flex;
+		padding-bottom: 5px;
+		justify-content: space-around;
+	}
+	.options {
+		align-self: baseline;
+	}
+	.icono {
+		font-size: 1em;
+	}
+	.icono-text {
+		font-size: .8em;
+	}
+}
